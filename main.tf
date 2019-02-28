@@ -5,7 +5,18 @@ output "external_ip" {
 }
 
 resource "null_resource" "cluster" {
+  lifecycle { 
+prevent_destroy = true 
+}
   provisioner "local-exec" {
     command = "echo CowaBanga"
   }
 }
+
+resource "null_resource" "cluster-2" {
+  depends_on = ["cluster"]
+  provisioner "local-exec" {
+    command = "echo CowaBanga"
+  }
+}
+
