@@ -20,3 +20,16 @@ resource "null_resource" "cluster-2" {
   }
 }
 
+resource "null_resource" "cluster-3" {
+  depends_on = ["null_resource.cluster"]
+  provisioner "local-exec" {
+    command = "echo CowaBanga"
+  }
+}
+
+resource "null_resource" "cluster-4" {
+  depends_on = ["null_resource.cluster"]
+  provisioner "local-exec" {
+    command = "echo CowaBanga"
+  }
+}
