@@ -14,7 +14,7 @@ prevent_destroy = true
 }
 
 resource "null_resource" "cluster-2" {
-  depends_on = ["cluster"]
+  depends_on = ["null_resource.cluster"]
   provisioner "local-exec" {
     command = "echo CowaBanga"
   }
